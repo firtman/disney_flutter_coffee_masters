@@ -1,3 +1,4 @@
+import 'package:coffee_masters/datamanager.dart';
 import 'package:coffee_masters/pages/menupage.dart';
 import 'package:coffee_masters/pages/offerspage.dart';
 import 'package:coffee_masters/pages/orderpage.dart';
@@ -30,6 +31,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   var currentIndex = 0;
+  var dataManager = new DataManager(); // singleton
 
   changeTab(value) {
     setState(() {
@@ -42,13 +44,17 @@ class _HomePageState extends State<HomePage> {
     Widget currentPage = const Placeholder();
     switch (currentIndex) {
       case 0:
-        currentPage = const MenuPage();
+        currentPage = MenuPage(
+          dataManager: dataManager,
+        );
         break;
       case 1:
         currentPage = const OfferPage();
         break;
       case 2:
-        currentPage = const OrderPage();
+        currentPage = OrderPage(
+          dataManager: dataManager,
+        );
         break;
       default:
     }
