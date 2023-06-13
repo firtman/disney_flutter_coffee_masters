@@ -31,6 +31,60 @@ class Offer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    var density = MediaQuery.of(context).devicePixelRatio;
+    var width = MediaQuery.of(context).size.width;
+
+    return SizedBox(
+      width: 300,
+      height: 250,
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Card(
+          color: Colors.amber.shade50,
+          elevation: 7,
+          child: Container(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: AssetImage(
+                    "images/background.png",
+                  )),
+            ),
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Center(
+                      child: Container(
+                    color: Colors.amber.shade50,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        title,
+                        style: Theme.of(context).textTheme.headlineLarge,
+                      ),
+                    ),
+                  )),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Center(
+                      child: Container(
+                    color: Colors.amber.shade50,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        description,
+                        style: Theme.of(context).textTheme.titleLarge,
+                      ),
+                    ),
+                  )),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }
