@@ -32,10 +32,7 @@ class DataManager {
     bool found = false;
     for (var item in cart) {
       if (item.product.id == p.id) {
-        item = (item.product, item.quantity + 1) as ({
-          Product product,
-          int quantity
-        });
+        item = (product: item.product, quantity: item.quantity + 1);
         found = true;
       }
     }
